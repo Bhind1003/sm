@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>登录测试实例</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+</head>
+<body>
+<div align="center" id="app">
+    <h3>登录请输入邮箱和密码</h3><br>
+    <label>
+        邮箱:<input v-model="email">
+    </label><br>
+    <label>
+        密码:<input type="password" v-model="password">
+    </label><br>
+    <input type="submit" v-on:click="submit" value="确认登录"><br>
+    <!--        <span>{{ info }}</span>-->
+    <div v-if="info===1">
+        登录成功！
+    </div>
+    <div v-else-if="info===0">
+        密码错误！
+    </div>
+    <div v-else-if="info===-1">
+        用户不存在！
+    </div>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                info: null,
+                email: null,
+                password: null
+            }
+        },
+        methods: {
+            submit: function () {
+                axios.post('http://localhost:8888/login', {
+                    "email": this.email,
+                    "password": this.password
+                })
+                    .then(response => (this.info = response.data))
+                    .catch(function (error) { // 请求失败处理
+                        console.log(error);
+                    });
+            }
+        }
+    })
+</script>
+</body>
+</html>
