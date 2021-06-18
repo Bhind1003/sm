@@ -2,7 +2,6 @@ package com.example.sm.service;
 
 import com.example.sm.dao.userMapper;
 import com.example.sm.model.User;
-import com.sun.istack.internal.NotNull;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -22,7 +21,7 @@ public class UserServiceImp implements userService {
     }
 
     @Override
-    public String confirmUser(@NotNull User user) {
+    public String confirmUser(User user) {
         System.out.println("用户输入值：" + user.toString());
         try {
             User temp = userMapper.FindUser(user.getEmail());
