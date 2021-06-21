@@ -7,4 +7,5 @@ import java.util.List;
 public interface recordService {
     String addRecord(Record record)throws Exception;
     List<Record> listRecord(int num)throws Exception;
+    List<Record> listUserRecords(String email)throws Exception;
 }

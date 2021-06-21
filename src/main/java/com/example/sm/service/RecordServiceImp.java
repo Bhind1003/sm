@@ -55,4 +55,16 @@ public class RecordServiceImp implements recordService {
         }
         return null;
     }
+
+    @Override
+    public List<Record> listUserRecords(String email) throws Exception {
+        try {
+           return recordsMapper.listUserRecords(email);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            System.out.println("Service:RecordServiceImp->listUserRecords");
+        }
+        return null;
+    }
 }

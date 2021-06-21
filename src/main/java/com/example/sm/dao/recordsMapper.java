@@ -17,4 +17,7 @@ public interface recordsMapper {
 
     @Select("select * from records ORDER BY score DESC")
     List<Record> listRecordsByScore();
+
+    @Select("select * from records where email = #{email} ORDER BY time DESC")
+    List<Record> listUserRecords(String email);
 }
