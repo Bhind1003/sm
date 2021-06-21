@@ -32,11 +32,11 @@ public class UserController {
         return userServiceImp.addUser(user);
     }
 
-    @RequestMapping("/findWeather")
-    public Weather listWeather(@RequestParam(value = "location", defaultValue = "北京") String location) {
-        Weather temp = new Weather();
-        temp.setLocation(location);
-        temp.setWeatherInfo("小雨转大雨");
-        return temp;
-    }
+//    @RequestMapping("/findWeather")
+//    public Weather listWeather(@RequestParam(value = "location", defaultValue = "北京") String location) {
+//        Weather temp = new Weather();
+//        temp.setLocation(location);
+//        temp.setWeatherInfo("小雨转大雨");
+//        return temp;
+//    }
 }

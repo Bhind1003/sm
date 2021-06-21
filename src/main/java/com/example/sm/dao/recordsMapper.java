@@ -12,6 +12,9 @@ public interface recordsMapper {
     @Insert("insert into records (time,email,name,score) values(#{time},#{email},#{name},#{score})")
     int record(String time, String email, String name, String score);
 
-    @Select("select * from records LIMIT #{num}")
-    List<Record> listRecords(int num);
+    @Select("select * from records ORDER BY time DESC")
+    List<Record> listRecordsByTime();
+
+    @Select("select * from records ORDER BY score DESC")
+    List<Record> listRecordsByScore();
 }

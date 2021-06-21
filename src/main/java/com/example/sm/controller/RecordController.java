@@ -27,7 +27,7 @@ public class RecordController {
     }
 
     @GetMapping("/listRecords")
-    public List<Record> listRecord(@RequestParam(value = "num", defaultValue = "30") int num) {
+    public List<Record> listRecord(@RequestParam(value = "num", defaultValue = "1") int num) {
         try {
             return recordServiceImp.listRecord(num);
         } catch (Exception e) {

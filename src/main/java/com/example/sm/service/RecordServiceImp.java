@@ -3,7 +3,6 @@ package com.example.sm.service;
 import com.example.sm.dao.recordsMapper;
 import com.example.sm.dao.userMapper;
 import com.example.sm.model.Record;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -44,7 +43,11 @@ public class RecordServiceImp implements recordService {
     @Override
     public List<Record> listRecord(int num) throws Exception {
         try {
-            return recordsMapper.listRecords(num);
+            if (num == 1) {
+                return recordsMapper.listRecordsByTime();
+            } else {
+                return recordsMapper.listRecordsByScore();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
