@@ -1,15 +1,12 @@
 package com.example.sm.controller;
 
 import com.example.sm.model.User;
-import com.example.sm.model.Weather;
 import com.example.sm.service.UserServiceImp;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
+@RequestMapping("/user")
 public class UserController {
     private final UserServiceImp userServiceImp;
 
@@ -17,8 +14,8 @@ public class UserController {
         this.userServiceImp = userServiceImp;
     }
 
-    @RequestMapping("/findUser")
-    public User findUser(@RequestParam(value = "email", defaultValue = "18045214@qq.com") String email) {
+    @GetMapping("/findUser")
+    public User findUser(@RequestParam(value = "email", defaultValue = "123456@qq.com") String email) {
         return userServiceImp.findUser(email);
     }
 
@@ -32,11 +29,5 @@ public class UserController {
         return userServiceImp.addUser(user);
     }
 
-//    @RequestMapping("/findWeather")
-//    public Weather listWeather(@RequestParam(value = "location", defaultValue = "北京") String location) {
-//        Weather temp = new Weather();
-//        temp.setLocation(location);
-//        temp.setWeatherInfo("小雨转大雨");
-//        return temp;
-//    }
+
 }

@@ -35,8 +35,9 @@ public class RecordController {
         }
         return null;
     }
+
     @GetMapping("listUserRecords")
-    public List<Record> listUserRecords(@RequestParam(value = "email", defaultValue = "test@qq.com") String email){
+    public List<Record> listUserRecords(@RequestParam(value = "email", defaultValue = "test@qq.com") String email) {
         try {
             return recordServiceImp.listUserRecords(email);
         } catch (Exception e) {
